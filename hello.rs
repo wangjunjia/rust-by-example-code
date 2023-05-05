@@ -32,10 +32,23 @@ fn main() {
 
     // 创建一个 i32 的结构体
     #[allow(dead_code)] // 未使用不要警告了
-                        // #[derive(Debug)] // {:?}
-                        // #[derive(Display)] // {}
+    #[derive(Debug)] // {:?}
+                     // #[derive(Display)] // {}
     struct Structure(i32);
 
     // 这个会报错
-    // println!("This struct {} won't print..", Structure(3));
+    println!("This struct {:?} won't print..", Structure(3));
+
+    #[derive(Debug)]
+    struct Person<'a> {
+        name: &'a str,
+        age: u8,
+    }
+
+    let peter = Person {
+        name: "Peter",
+        age: 27,
+    };
+    // {:#?} 美化打印
+    println!("peter is {:#?}", peter);
 }
