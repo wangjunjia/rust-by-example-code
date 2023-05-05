@@ -67,6 +67,9 @@ fn main() {
     // Debug formatter minmax : MinMax(0, 14)
     // Display formatter point : x: 3.3, y: 7.2
     // Debug formatter point : Point2D { x: 3.3, y: 7.2 }
+
+    let v = List(vec![1, 2, 3, 4]);
+    println!("Display vec : {}", v);
 }
 
 // 定义一个结构体， 保护一个元组 , 元素类型 i32
@@ -102,5 +105,25 @@ impl fmt::Display for Point2D {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         // 看得出来， 就是指定顺序 write 出去
         write!(f, "x: {}, y: {}", self.x, self.y)
+    }
+}
+
+struct List(Vec<i32>);
+
+impl fmt::Display for List {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        let vec = &self.0;
+
+        // 原来 write 可以一直写的， 666～
+        write!(f, "[")?;
+
+        for (index, v) in vec.iter().enumerate() {
+            if index != 0 {
+                write!(f, ", ")?;
+            }
+            write!(f, "{}: {}", index, v)?;
+        }
+
+        write!(f, "]")
     }
 }
