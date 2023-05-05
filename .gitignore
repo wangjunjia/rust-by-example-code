@@ -16,3 +16,4 @@ Cargo.lock
 hello
 tuple
 display
+array_slice
