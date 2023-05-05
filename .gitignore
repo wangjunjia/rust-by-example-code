@@ -20,3 +20,4 @@ array_slice
 struct
 enum
 use
+enum_c_like
