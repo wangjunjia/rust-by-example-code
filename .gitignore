@@ -21,3 +21,4 @@ struct
 enum
 use
 enum_c_like
+enum_linked_list
