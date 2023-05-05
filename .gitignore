@@ -18,3 +18,4 @@ tuple
 display
 array_slice
 struct
+enum
