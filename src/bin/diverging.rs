@@ -4,8 +4,8 @@
  *
  */
 
-#![feature(never_type)]
+#[feature(never_type)]
 fn main() {
-    let x:! = panic!("this call never returns");
+    let x: ! = panic!("this call never returns");
     // println!("you will never see this line!");
 }
